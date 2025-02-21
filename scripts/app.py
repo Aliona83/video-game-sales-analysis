@@ -11,12 +11,12 @@ df = pd.read_csv("data/vgchartz-2024.csv")
 st.set_page_config(page_title="Video Game Sales Dashboard", layout="wide")
 
 # Sidebar Navigation
-st.sidebar.title("🎮 Navigation")
+st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Home", "Popular Consoles", "Most Popular Genres", "Sales Analysis", "Game Developers"])
 
-# 🏠 Home Page
+# Home Page
 if page == "Home":
-    st.title("🎮 Video Game Sales Analysis")
+    st.title("Video Game Sales Analysis")
     st.write("Welcome to this interactive dashboard where we explore trends in video game sales!")
 
 elif page == "Popular Consoles":
@@ -31,7 +31,7 @@ elif page == "Popular Consoles":
     fig = px.bar(x=games_per_console.index, y=games_per_console.values,title="Number of Games per Console", labels={'x': 'Console', 'y': 'Number of Games'})
     st.plotly_chart(fig)
 
-# 🎮 Most Popular Game Genres
+# Most Popular Game Genres
 elif page == "Most Popular Genres":
     st.title("🎮 Most Popular Game Genres")
 
