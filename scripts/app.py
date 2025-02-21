@@ -12,7 +12,7 @@ st.set_page_config(page_title="Video Game Sales Dashboard", layout="wide")
 
 # Sidebar Navigation
 st.sidebar.title("🎮 Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Popular Consoles", "Most Popular Genres", "Sales Analysis", "Release Trends"])
+page = st.sidebar.radio("Go to", ["Home", "Popular Consoles", "Most Popular Genres", "Sales Analysis", "Game Developers"])
 
 # 🏠 Home Page
 if page == "Home":
@@ -67,23 +67,27 @@ elif page == "Sales Analysis":
     fig.update_layout(xaxis_title="Game (Genre)", yaxis_title="Sales (millions)", xaxis_tickangle=-45)
 
     st.plotly_chart(fig)
-# elif page == "Sales Analysis":
-#     st.title("🌍 Game Sales by Region")
-#
-#     # Summing total sales per region
-#     regional_sales = {
-#         "North America": df["na_sales"].sum(),
-#         "Japan": df["jp_sales"].sum(),
-#         "Europe (PAL)": df["pal_sales"].sum(),
-#         "Other Regions": df["other_sales"].sum()
-#     }
-#
-#     # Convert to DataFrame for Plotly
-#     sales_df = pd.DataFrame(list(regional_sales.items()), columns=["Region", "Total Sales (millions)"])
-#
-#     # Create a bar chart with Plotly
-#     fig = px.bar(sales_df, x="Region", y="Total Sales (millions)",
-#                  title="Total Game Sales by Region",
-#                  color="Region", text="Total Sales (millions)")
-#
-#     st.plotly_chart(fig)
+
+elif page == "Game Developers":
+    st.title("Top 15 Best-Selling Developers")
+
+    # Filter out rows where 'developer' or 'total_sales' are NaN
+    df_filtered = df[df['developer'].notna() & df['total_sales'].notna()]
+
+    # Find the best-selling game for each developer
+    best_game_idx = df_filtered.groupby('developer')['total_sales'].idxmax()
+
+    # Extract the corresponding game title and sales
+    best_developer = df_filtered.loc[best_game_idx, ['developer', 'title', 'total_sales']]
+
+    # Sort by total sales in descending order and keep only the top 15 developers
+    top_15_developers = best_developer.sort_values(by='total_sales', ascending=False).head(15)
+
+    # Create a bar chart for the top 15 developers
+    fig = px.bar(top_15_developers, x="developer", y="total_sales", color="title",
+                 title="Top 15 Best-Selling Developers")
+
+    # Improve layout
+    fig.update_layout(xaxis_title="Developer", yaxis_title="Total Sales (millions)", xaxis_tickangle=-45)
+
+    st.plotly_chart(fig)
