@@ -1,10 +1,10 @@
-🎮 Video Game Sales Analysis
+ ## 🎮 Video Game Sales Analysis
 
-Description
+### Description
 
-Video Game Sales Analysis is a data visualization project that analyzes sales trends across different consoles, genres, and regions. It provides interactive visualizations to help users explore game popularity and trends over time.
+#### Video Game Sales Analysis is a data visualization project that analyzes sales trends across different consoles, genres, and regions. It provides interactive visualizations to help users explore game popularity and trends over time.
 
-Features
+##### Features
 
 📊 Analyze top-selling consoles
 
@@ -16,36 +16,42 @@ Features
 
 🚀 Interactive dashboard powered by Streamlit
 
-Installation
+#### Installation
 
 To install the required dependencies, run:
 
 pip install -r requirements.txt
 
-Usage
+#### Usage
+***
 
 To start the Streamlit app, run:
 
 streamlit run app.py
 
-Local URL: http://localhost:8501
+Local URL: https://video-game-sales-analysis-dv3amejnepd9inv8dbrhme.streamlit.app/
 
-Project Structure
+#### Project Structure
+***
 
-video-game-sales-analysis/
-│-- data/
-│   ├── vgchartz-2024.csv  # Dataset (from Kaggle)
-│-- scripts/
-│   ├── visualization.py    # Custom functions for visualization
-│-- app.py                 # Main Streamlit application
-│-- requirements.txt       # Dependencies
-│-- README.md              # Project Documentation
+![image](images/structure.png)
+           
 
-Sample Visualizations
+##### Sample Visualizations
+***
 
-(Add screenshots or GIFs of your dashboard here!)
+![Image](images/graph_1.png)
+![Image](images/graph_2.png)
+![Image](images/graph_3.png)
+![Image](images/graph_4.png)
+![Image](images/graph_5.png)
 
-Future Improvements
+
+
+
+
+
+#### Future Improvements
 
 🔥 Machine Learning predictions for game sales
 
@@ -53,22 +59,16 @@ Future Improvements
 
 📊 Deeper analysis including user & critic scores
 
-Acknowledgments
+#### Acknowledgments  
 
-Dataset sourced from Kaggle.
-
-Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss your suggestions.
-
-License
+- **Dataset sourced from [Kaggle](https://www.kaggle.com/)**  
+- Built using **Pandas**, **Streamlit**, **Matplotlib**, **Seaborn**, and **Plotly** 
+- This project is part of my learning journey to improve my **data analysis and visualization skills**  
 
 MIT
 
-Connect With Me
+##### Connect With Me
 
-💼 LinkedIn: Your LinkedIn
+💼 LinkedIn: www.linkedin.com/in/aliona-janusko
 
 🏆 GitHub: Aliona83
-
-🚀 Portfolio: Coming Soon!
